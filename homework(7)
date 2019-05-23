@@ -1,0 +1,135 @@
+//1. Author
+
+ class Author{
+     constructor(name,email,gender){
+         this._name = name;
+         this._email = email;
+         this._gender = gender;
+     }
+     get name(){
+         return this._name;
+     }
+     set name(value){
+         return this._name = value;
+     }
+     get email(){
+         return this._email
+     }
+     set email(value){
+         return this._email = value;
+     }
+     get gender(){
+         return this._gender;
+     }
+     set gender(value){
+         return this._gender= value;
+     }
+     toString(){
+         return "This is a to String metod of Auther"
+     }
+ } 
+let author = new Author("any name","any@any.com","male")
+
+class Book extends Author {
+    constructor (title,author,price,quantity){
+        super();
+        this._title = title;
+        this._author = author;
+        this._price = price;
+        this._quantity = quantity;
+    }
+    get title(){
+        return this._title;
+    }
+    set title(value){
+        return this._title = value;
+    }
+    get author(){
+        return this._author;
+    }
+    set author(value){
+        return this._author = value;
+    }
+    get price(){
+        return this._price;
+    }
+    set price(value){
+        return this._price = value;
+    }
+    get quantity(){
+        return this._quantity;
+    }
+    set quantity(value){
+        return this._quantity = value;
+    }
+    getProfit(){
+        return this._price * this._quantity;
+    }
+    toString(){
+        return "This is a to String metod of Book";
+    }
+}
+  
+let book = new Book("new book","some one",5000,100);
+
+//2.Account
+
+class Account {
+    constructor(id,name,balance){
+        this._id = id;
+        this._name = name;
+        this._balance = balance;
+    }
+    get id(){
+        return this._id;
+    }
+    set id(value){
+        return this._id = value;
+    }
+    get name(){
+        return this._name;
+    }
+    set name(value){
+        return this._name = value;
+    }
+    get balance (){
+        return this._balance;
+    }
+    set balance(value){
+        return this._balance = value;
+    }
+    credit(amount){
+        return this.balance += amount;
+        }
+    debit(amount){
+        if (amount < this._balance){
+            return this._balance - amount;
+        }
+        return "Amount exeeded balance."
+    }
+    transferTo(anotherAccount,amount){
+        if (amount < this._balance){
+            anotherAccount.balance += amount;
+            this._balance -= amount;
+            return this._balance;
+        }
+        return "Amount exeede balance."
+    }
+    static identifyAccounts(accountFirst,accountSecond){
+        if (accountFirst.id === accountSecond.id && accountFirst.name === accountSecond.name&&  accountFirst.balance === accountSecond.balance){
+            return true;
+        }return false;
+           
+        
+    }
+    toString(){
+        return "This is a to String metod of Accounts"
+    }
+}
+
+let accountFirst = new Account(001, "first", 1200);
+let accountSecond = new Account(002, "Second", 2200);
+let accountTherd = new Account(003, "therd", 3200);
+let accountFourth = new Account(004, "four", 4200);
+let accountFifth = new Account(001, "five", 5200);
+let acoountFirstSame= new Account(001,"first",1200)
